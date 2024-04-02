@@ -1,0 +1,68 @@
+
+<div class="cineams-page">
+  <h1 class="header">Dashboard</h1>
+  <div class="content">
+    <div class="tab">
+      <h2 class="header">Cinemas {{ pageData?.totalElements }}</h2>
+      <button class="button" matButton (click)="createNew()">Create new cinema</button>
+      <div class="entities">
+        <div class="entity" *ngFor="let cinema of pageData?.content">
+
+          <span class="actions">
+            <span class="material-symbols-outlined" (click)="addScreen(cinema)">
+              add
+            </span>
+            <span class="material-symbols-outlined" (click)="loadScreens(cinema.id)">
+              refresh
+            </span>
+          </span>
+          <span [class.selected]="selectedCinemaScreen?.cinemaId === cinema.id">{{ cinema.name }}</span>
+          <div class="screens">
+            <div *ngFor="let screen of cinema.screens">
+              <span class="clickable" [class.selected]="selectedCinemaScreen?.screenId === screen.id"
+                (click)="selectScreen(cinema, screen)">
+                {{ screen.name }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab">
+      <h2>Movies {{ moviePageData?.totalElements }}</h2>
+      <button class="button" matButton (click)="createNewMovie()">Create new movie</button>
+      <div class="entities">
+        <div class="entity" *ngFor="let movie of moviePageData?.content">
+          <span class="clickable" [class.selected]="selectedMovie?.id === movie.id"
+            (click)="selectMovie(movie)">{{ movie.name }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="tab">
+      <h2>Screenings {{ screeningData?.totalElements }}</h2>
+      <button class="button" matButton (click)="createNewScreening()">Create new screening</button>
+      <div class="entities">
+        <div class="entity" *ngFor="let data of screeningData?.content" 
+          [class.selected]="selectedScreening?.id === data.id"
+          (click)="selectScreening(data)">
+          <span>Movie: </span>
+          <span class="value">{{ data.movie.name }}</span>
+          <span>Start Time: </span>
+          <span class="value">{{ data.start | date:'yyyy-MM-dd HH:mm:ss'}}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab">
+      <h2>Bookings {{ bookingData?.totalElements }}</h2>
+      <button class="button" matButton (click)="createNewBooking()">Create new booking</button>
+      <div class="entities">
+        <div class="entity" *ngFor="let data of bookingData?.content">
+          <span class="value">{{ data.id }}</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

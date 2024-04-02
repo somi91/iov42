@@ -1,0 +1,60 @@
+
+.cineams-page {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  height: calc(100% - 40px);
+  .content {
+    display: flex;
+    max-width: 1024px;
+    margin: auto;
+    gap: 50px;
+    overflow: hidden;
+    height: 100%;
+    .tab {
+      flex: 1;
+      overflow: auto;
+      min-width: 200px;
+    }
+    .entities {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+
+      .entity {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        padding: 30px 0px;
+        cursor: pointer;
+        .clickable {
+          cursor: pointer;  
+        }
+        &.selected,
+        .selected {
+          color: orange;
+        }
+        .actions {
+          display: flex;
+          gap: 10px;
+          position: absolute;
+          top: 0px;
+          right: 0px;
+          cursor: pointer;
+        }
+        .screens {
+          display: flex;
+          flex-direction: column;
+          padding-top: 6px;
+          padding-left: 20px;
+          gap: 6px;
+          white-space: nowrap;      
+        }
+        .value {
+          padding-left: 10px;
+        }
+      }
+    }
+  }
+}

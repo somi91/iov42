@@ -1,0 +1,11 @@
+
+<mat-form-field class="input-field">
+  <mat-label>{{ label }}</mat-label>
+  <input matInput [formControl]="control" [type]="type">
+
+  <mat-error>
+    <span *ngFor="let error of control?.errors | keyvalue | first">
+      {{ error.key | error }}
+    </span>
+  </mat-error>
+</mat-form-field>

@@ -1,0 +1,15 @@
+
+.header {
+  display: flex;
+  .list {
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+    gap: 10px;
+    .menu-item {
+      margin: 0px;
+      padding: 0px;
+      list-style: none;
+    }
+  }
+}
